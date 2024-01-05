@@ -1,8 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 const cors = require("cors");
+// mongoose
+//   .connect("mongodb://localhost:27017/crudPractice")
+//   .then(() => console.log("connected to database"))
+//   .catch((err) => console.log("database error:", err));
 mongoose
-  .connect("mongodb://localhost:27017/crudPractice")
+  .connect(
+    `mongodb+srv://mudassirmujeeb:${process.env.MONGO_CONNECTION}@cluster0.0mb3squ.mongodb.net/crudApp`
+  )
   .then(() => console.log("connected to database"))
   .catch((err) => console.log("database error:", err));
 const app = express();
